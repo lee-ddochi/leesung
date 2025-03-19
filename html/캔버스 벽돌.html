@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>벽돌깨기</h1>
+    <canvas width="480" height="360"></canvas>
+
+    <script>
+        const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext("2d");
+
+        let ball = { x:240, y:330, dx:2, dy:-2, radius: 8}
+        let bar = { width: 70, height: 10, x:205 }
+        let block = { row:3, col:5, width: 75, height:20, padding:10, top:20, left:20}
+
+        let blocks = [];
+        let rigthk = false;
+        let leftk = false; 
+        let gameover =false;
+
+        for(let i=0; i < block.row; i++){
+            blocks[i] = [];
+            for(let j=0; j<block.col; j++){
+                blocks[i][j] = {x:0, y:0, flag:1}
+            }
+        }
+        document.addEventListener("keydown", e => {
+            if(e.key == "ArrowRight"){ rigthk = true; }
+            if(e.key == "ArrowLeft"){ leftk = true; }
+        });
+
+        document.addEventListener("keyup", e =>{
+            if(e.key == "ArrowRight"){ rigthk = false; }
+            if(e.key == "ArrowLeft"){ leftk = false; }
+        });
+
+        function dball(){
+            ctx.beginPath();
+            ctx.arc(ball.x,ball.y,ball.radius,0,Math.PI*2,false);
+            ctx.fillStyle = "orange";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function dbar(){
+            ctx.fillStyle = "blue"
+            ctx.Rect(bar.x, canvas.height-bar.height,bar.width,bar.height)
+        }
+
+        function dblock(){
+            block.forEach( (row,i) =>{
+                row.forEach((item,j)=>{
+                    if(item.flag){
+                        let x = j *(block.width + block.padding) + block.left;
+                        let y = i *(block.height + block.padding) + block.top;
+
+                        ctx.fillStyle = "green"
+                        ctx.fillRect(x, y, block.width, block.height)
+
+                        block.x = x;
+                        block.y = y;
+                    }
+                });
+            });
+        }
+
+        function meet(){
+            blocks.forEach((row,i)=>{
+                row.forEach((item,j)=>{
+                    if(
+                        blocks.flag &&
+                        ball.x > block.x && ball.x < block.x + block.width &&
+                        ball.y > block.y && ball.y < block.y + block.height
+                        ){
+                            ball.dy = -ball.dy;
+                            block.flag = 0;
+                        }
+                })
+            })
+            function move(){
+            if(gameover)return;
+            ball.x += ball.dx
+            ball.y += ball.dy
+
+            if(ball.x > canvas.width-ball.radius|| ball.x< ballradius)
+            if(ball.y < ball.radius) ball.dy = -ball.dy;
+            if(ball.y > canvas.height - ball.radius ){
+                if(ball.x > bar.x && ball.x<bar.x + bar.width)
+                ball.dy = -ball.dy;
+            }else{
+                gameover = true;
+                alert("게임오버")
+            }
+            if(rigthk && bar.x < canvas.width - bar.width) bar.x +=5;
+            if(leftk && bar.x > 0) bar.x -= 5;
+        }
+        function play(){
+            ctx.clearRect(0,0, canvas.width,canvas.height);
+            dball();
+            dbar();
+            dblock();
+            meet();
+            move();
+            if(!gameover) requestAnimationFrame(play)
+        }
+        }
+        play();
+    </script>
+</body>
+</html>

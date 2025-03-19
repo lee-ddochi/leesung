@@ -1,0 +1,579 @@
+*{  margin: 0; padding: 0; }
+body{width: 100vw; height: 100vh; box-sizing: border-box; overflow-x: hidden; margin: 0;
+    padding: 0;
+} a{ text-decoration: none;}
+img{ margin: 0; padding: 0;}
+        header{display:flex; width: 100vw; height: 8rem; 
+          align-items: center; 
+          background-color: black;
+            }
+          /*헤더 end*/
+
+        nav{ width: 100%; 
+             height: 100%; 
+             color: white;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            margin-bottom: 1rem;
+            font-family: "IBM Plex Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-variation-settings:"wdth" 100;
+
+          }
+          nav div{ margin: 3rem; cursor: pointer;}
+          /* nav 끝 */
+
+        .logo{ width: 100vw;
+              height: 7rem;
+          font-weight: bold; 
+          font-size: 1.8rem; 
+          margin: 0; 
+          color: white; 
+          margin-left: 4rem; 
+          padding-top: 4rem;
+          font-family: "Rubik Glitch", serif;
+          font-optical-sizing: auto;
+          font-weight: 100;
+          font-style:normal;
+          position: relative;
+          font-variation-settings:"wdth" 100;}
+          /*rogo end*/
+
+        .main img{width: 100%; height: 100%; object-fit: cover; position: absolute; z-index: 1;}
+        /*메인 이미지 end*/
+
+        .name { font-size: 7rem; 
+                margin-left: 55rem; 
+                margin-bottom: 5rem; 
+                font-weight: bold; 
+                color: white; 
+                position: absolute;
+                z-index: 2;}
+        .name h1{ margin-top: 6rem;
+          font-family: "Rubik Glitch", serif;
+          font-optical-sizing: auto;
+          font-weight: 100;
+          font-style:normal;
+          font-variation-settings:"wdth" 100;
+        }
+        /*메인 name end*/
+
+
+        @keyframes fadeOut {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+      
+          .name {
+            font-size: 7rem;
+            font-weight: bold;
+            opacity: 0; /* 처음에는 안 보이도록 */
+            animation: fadeOut 3s ease-out forwards;
+          }
+          .text {
+            font-size: 8rem;
+            font-weight: bold;
+            opacity: 0; /* 처음에는 안 보이도록 */
+            animation: fadeOut 3s ease-out forwards;
+          }
+          @keyframes fadeOut {
+            0% {
+              opacity: 0;
+              transform: translateY(40px); /* 살짝 아래에서 올라오는 효과 */
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          /*name효과 end*/
+
+          @keyframes twinkle {
+            0%, 100% {
+              opacity: 0.2;
+              transform: scale(1);
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.2);
+            }
+          }
+          
+          .star {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 1.5s infinite alternate ease-in-out;
+            z-index: 3;
+          }
+
+          /*별 효과end*/
+
+          .ab{ width: 100%; height: 100%; object-fit: cover;
+               /* border: 2px solid red;  */
+                top: 66rem;}
+
+          .text{ color: white; 
+            /* border: 1px solid red;  */
+            position: absolute;
+            margin-top: 72rem;
+            margin-left: 55rem;
+            font-size: 2.4rem;
+            z-index: 4;
+            font-family: "IBM Plex Sans", serif;
+            font-optical-sizing: auto;
+            font-weight: bold;
+            font-style: normal;
+            font-variation-settings:"wdth" 100;}
+
+            .ddo img {
+                width: 20%;
+                height: 50%;
+                border: 2px solid white;
+                border-radius: 0.4rem;
+                object-fit: cover;
+                position: absolute;
+                top: 98rem;
+                left: 10rem;
+                z-index: 5;
+                animation: slideInFromLeft 1s ease-out forwards ;
+            }
+            #txt1{
+                width: 34%;
+                height: 20%;
+                left: 56rem;
+                top: 93rem;
+                border: 2px solid white;
+                border-radius: 1rem;
+                color: white;
+                background-color: rgba(3,3,3,0.5);
+                position: absolute;
+                text-align: center;
+                justify-content: center;
+                align-content: center;
+                font-size: 1rem;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 500;
+                font-style: normal;
+                animation:slideInFromTop 1s ease-out forwards ;
+            }
+            #txt2{
+                width: 34%;
+                height: 20%;
+                left: 56rem;
+                top: 108rem;
+                border: 2px solid white;
+                border-radius: 1rem;
+                color: white;
+                background-color: rgba(3,3,3,0.5);
+                position: absolute;
+                text-align: center;
+                justify-content: center;
+                align-content: center;
+                font-size: 1rem;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 500;
+                font-style: normal;
+                animation: slideInFromRight 1s ease-out forwards ;
+            }
+            #txt3{
+                width: 34%;
+                height: 20%;
+                left: 56rem;
+                top: 123rem;
+                border: 2px solid white;
+                border-radius: 1rem;
+                color: white;
+                background-color: rgba(3,3,3,0.5);
+                position: absolute;
+                text-align: center;
+                justify-content: center;
+                align-content: center;
+                font-size: 1rem;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 500;
+                font-style: normal;
+                animation: slideInFromBottom 1s ease-in forwards;
+            }
+            p{ font-size: 1.3rem;}
+            .txt4{
+                width: 20%;
+                height: 2%;
+                display: inline-block;
+                border-right: 3px solid white;
+                white-space: nowrap;
+                overflow: hidden;
+                animation: blink-caret 0.9s step-end infinite;
+                }
+            #txt4{
+                width: 16%;
+                height: 5%;
+                top: 86rem;
+                left: 52rem;
+                color: white;
+                position: absolute;
+                text-align: center;
+                justify-content: center;
+                align-content: center;
+                font-size: 1rem;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 450;
+                font-style: normal;
+                font-size: 2rem;
+            }
+            @keyframes slideInFromTop {
+                0% {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes slideInFromRight {
+                0% {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateX(0);
+                    opacity: 1;
+                 
+            }}
+
+            @keyframes slideInFrom {
+                0% {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateX(0);
+                    opacity: 1;
+                 
+            }}
+
+            @keyframes slideInFromBottom{
+                0%{
+                    transition: translateY(-100%);
+                    opacity: 0;
+                }
+                100%{transition: translateY(0);
+                    opacity: 1;}
+            }
+
+            @keyframes blink-caret {
+                from, to {
+                    border-color: transparent;
+                }
+                50% {
+                    border-color: white;
+                }
+            }
+
+            /*sec1 end*/
+
+            .text1{ color: white; 
+                /* border: 1px solid red;  */
+                position: absolute;
+                top: 146rem;
+                margin-left: 55rem;
+                font-size: 2.4rem;
+                z-index: 6;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: bold;
+                font-style: normal;
+                font-variation-settings:"wdth" 100;
+                }    
+                .ab2{
+                    width: 100%; height: 100%; object-fit: cover; position: relative;
+                    bottom: 1rem; 
+                    
+                }
+                .txt5{
+                    width: 20%;
+                    height: 2%;
+                    display: inline-block;
+                    border-right: 3px solid white;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    animation: blink-caret 0.9s step-end infinite;
+                    /* border: 2px solid red; */
+                    position: absolute;
+                    z-index: 9;
+                    }
+                #txt5{
+                    width: 20%;
+                    height: 5%;
+                    top: 152rem;
+                    left: 50rem;
+                    color: white;
+                    position: absolute;
+                    text-align: center;
+                    justify-content: center;
+                    align-content: center;
+                    z-index: 10;
+                    font-size: 1rem;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 450;
+                font-style: normal;
+                font-size: 2rem;
+                    }
+                #txt6{
+                    width: 28%;
+                    height: 22rem;
+                    background-color: rgba(3,3,3,0.4);
+                    border: 2px solid white;
+                    color: white;
+                    border-radius: 1rem;
+                    justify-content: center;
+                    text-align: center;
+                    align-content: center;
+                    top: 164em;
+                    left: 45rem;
+                    position: absolute;
+                    z-index: 9;
+                    animation: slideInFromBottom 1s ease-in forwards;
+                }
+                #txt6 p{
+                    font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: bold;
+                font-style: normal;
+                font-size: 1.4rem;
+                padding: 2rem;
+                }
+                @keyframes slideInFromBottom{
+                    0%{
+                        transition: translateY(-100%);
+                        opacity: 0;
+                    }
+                    100%{transition: translateY(0);
+                        opacity: 1;}
+                }
+                .ab3 img{
+                    width: 8%;
+                    height: 9rem;
+                    position: absolute;
+                    top: 160rem; left: 90rem;
+                    border-radius: 50%;
+                    z-index: 10;
+                    animation: slideInFromBottom 1s ease-in forwards;
+                }
+                
+                @keyframes slideInFromBottom{
+                    0%{
+                        transition: translateX(100%);
+                        opacity: 0;
+                    }
+                    100%{transition: translateX(0);
+                        opacity: 1;}
+                }
+                #txt7{
+                    width: 16%;
+                    height: 16%;
+                    position: absolute;
+                    top: 178rem; left: 88rem;
+                    color: white;
+                    text-align: left;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight:bold;
+                font-style: normal;
+                /* border: 1px solid yellow; */
+                animation:slideInFromTop 1s ease-out forwards ;
+                }
+                #txt7 p{
+                    font-size: 1rem;
+                }
+                @keyframes slideInFromTop {
+                    0% {
+                        transform: translateY(-100%);
+                        opacity: 0;
+                    }
+                    100% {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                }
+                #txt8{
+                    width: 14%;
+                    height: 14%;
+                    position: absolute;
+                    top: 172rem; left: 88rem;
+                    color: white;
+                    /* border: 1px solid yellow; */
+                    font-size: 1rem;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight:bold;
+                font-style: normal;
+                animation: slideInFromTop 1s ease-out forwards ;
+                }
+                #txt8 p{
+                    font-size: 1rem;
+                }
+                @keyframes slideInFromTop {
+                    0% {
+                        transform: translateY(100%);
+                        opacity: 0;
+                    }
+                    100% {
+                        transform: translateY(0);
+                        opacity: 1;
+                     
+                }}
+                #txt6:hover{
+                    width: 50%;
+                    height: 40rem;
+                    top: 162em;
+                    left: 14rem;
+                    cursor: pointer;
+                    transform: translate(0, -50%);
+                    /* transition: 1.5s; */
+                    animation: fadeIn 1s ease-in-out forwards;
+                }
+
+                @keyframes fadeIn {
+                    0% {
+                      opacity: 0;
+                      transform: translateY(5px); /* 살짝 아래에서 올라오는 효과 */
+                    }
+                    100% {
+                      opacity: 1;
+                      transform: translateY(0);
+                    }
+                  }
+
+                #txt6 p:hover{
+                    font-size: 2rem;
+                    text-align: center;
+                    justify-content: center;
+                    align-content: center;
+                }
+                
+                /*두번째 end*/
+                .por{
+                width: 100%;
+                height: 6rem;
+                background-color: black;
+                position: absolute;
+                top: 208em;
+                }
+                .text2{
+                    color: white;
+                    position: absolute;
+                top: 210rem;
+                margin-left: 55rem;
+                font-size: 2.4rem;
+                z-index: 20;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: bold;
+                font-style: normal;
+                font-variation-settings:"wdth" 100;
+                /* border: 1px solid red; */
+                }
+                .out {
+                    width: 100%;
+                    height: 38rem;
+                    background-color: black;
+                }
+                .imgbox {
+                    position: relative;
+                    width: 20rem;
+                    height: 20rem;
+                    margin: 2rem;
+                    margin-left: 2rem;
+                    display: inline-block;
+                    /* cursor: pointer; */
+                }
+                .imgbox img {
+                    width: 20rem;
+                    height: 20rem;
+                    margin: 11rem;
+                    border-radius: 1rem;
+                    cursor: pointer;
+                }
+                .imgbox:hover img {
+                    cursor: pointer;
+                    border: 1px solid white;
+                }
+                .overlay{
+                    display: flex;
+                    position: absolute;
+                    color: white;
+                    top: 220rem; left: 19rem;
+                    font-size: 1.2rem;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight:bold;
+                font-style: normal;
+                }
+                .overlay2{
+                    display: flex;
+                    position: absolute;
+                    color: white;
+                    top: 220rem; left: 44rem;
+                    font-size: 1.2rem;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight:bold;
+                font-style: normal;
+                }
+                .overlay3{
+                    display: flex;
+                    position: absolute;
+                    color: white;
+                    top: 220rem; left: 70rem;
+                    font-size: 1.2rem;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight:bold;
+                font-style: normal;
+                }
+                .overlay4{
+                    display: flex;
+                    position: absolute;
+                    color: white;
+                    top: 220rem; left: 94rem;
+                    font-size: 1.2rem;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight:bold;
+                font-style: normal;
+                }
+                footer{
+                    width: 100%;
+                    height: auto;
+                    background-color: #333;
+                    position: absolute;
+                }
+                .fff p{
+                    color: white;
+                    font-size: 1.2rem;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight:bold;
+                font-style: normal;
+                text-align: center;
+                padding: 4.4rem;
+                margin: auto;
+                }

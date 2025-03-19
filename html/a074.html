@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맨체스터시티 소개메뉴</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR&family=Jua&display=swap" rel="stylesheet">
+    <link rel= "stylesheet" href="../css/a074.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+</head>
+<body>
+    <div class="mainBox"></div>
+    <div class="navbar">
+        <a href="#" onclick="show('home')">처음으로</a>
+        <div class="subnav">
+            <div class="subnavTitle" onclick="show('intro')">맨체스터 시티 FC</div>
+            <div class="subnavContent">
+                <a href="#" onclick="show('emblem')">엠블럼</a>
+                <a href="#" onclick="show('sta')">홈구장</a>
+                <a href="#" onclick="show('coach')">감독</a>
+            </div>
+        </div>
+        <div class="subnav">
+            <div class="subnavTitle" onclick="show('member')">선수단 정보</div>
+            <div class="subnavContent">
+                <a href="#" onclick="showPlayers('공격수')">공격수</a>
+                <a href="#" onclick="showPlayers('미드필더')">미드필더</a>
+                <a href="#" onclick="showPlayers('수비수')">수비수</a>
+                <a href="#" onclick="showPlayers('골키퍼')">골키퍼</a>
+            </div>
+        </div>
+        <div class="subnav">
+            <div class="subnavTitle" onclick="show('uniform')">유니폼 갤러리</div>
+            <div class="subnavContent">
+                <a href="#" onclick="showUniform('home')">홈 유니폼</a>
+                <a href="#" onclick="showUniform('away')">어웨이 유니폼</a>
+                <a href="#" onclick="showUniform('third')">써드 유니폼</a>
+            </div>
+        </div>
+        <a href ="#" onclick="show('num')">연락처</div>
+    </div>
+
+
+    <div id="home" class="con">
+        <h1>Welcome to the</h1>
+        <h3>Manchester City FC</h3>
+        <img src="../img/mancity/엠블럼.jpg">
+    </div>
+
+    <div id="intro" class="con">
+        <h1>about Mancity</h1>
+        <h3>맨체스터 시티의 관해서</h3>
+    </div>
+
+    <div id="emblem" class="con">
+        <h1>Emblem</h1>
+        <img src="../img/mancity/엠블럼.jpg">
+    </div>
+
+    <div id="coach" class="con">
+        <h1>Coach</h1>
+        <img src="../img/mancity/과르디올라.jpg">
+        <h3>펩 과르디올라</h3>
+    </div>
+
+    <div id="sta" class="con">
+        <h1>Stadium</h1>
+        <img src="../img/mancity/스타디움.jpg">
+        <h3>에티하드 스타디움</h3>
+    </div>
+
+    <div id="member" class="con">
+        <h1>Players</h1>
+        <div id="playerInfo">
+            <h2>선수 정보</h2>
+            <div id="playerList">
+                <h3>선수를 선택하세요</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="uniform" class="con">
+        <h1>uniforms</h1>
+        <div id="uniformList"></div>
+    </div>
+    
+    <div id="num" class="con">
+        <h1>연락처</h1>
+        <h3>여기는 연락처 내용입니다.</h3>
+    </div>
+
+    <script>
+        let players = {
+            공격수: [
+                { name: "홀란드", img: "../img/mancity/홀란.jpg"},
+                { name: "포든", img: "../img/mancity/포든.jpg" },
+                { name: "도쿠", img: "../img/mancity/도쿠.jpg" },
+                { name: "그릴리시", img: "../img/mancity/그릴리시.jpg" },
+            ],
+            미드필더: [
+                { name: "귄도안", img: "../img/mancity/귄도안.jpg" },
+                { name: "더브라위너", img: "../img/mancity/데브라이너.jpg" },
+                { name: "로드리", img: "../img/mancity/로드리.jpg" },
+                { name: "베르나르두 실바", img: "../img/mancity/실바.jpg" },
+            ],
+            수비수: [
+                { name: "아칸지", img: "../img/mancity/아칸지.jpg" },
+                { name: "디아스", img: "../img/mancity/디아스.jpg" },
+                { name: "아케", img: "../img/mancity/아케.jpg" },
+                { name: "워커", img: "../img/mancity/워커.jpg" },
+                { name: "그바르디올", img: "../img/mancity/그바르디올.jpg" },
+                { name: "루이스", img: "../img/mancity/루이스.jpg" },
+            ],
+            골키퍼: [
+                { name: "에데르송", img: "../img/mancity/에데르송.jpg" },
+                { name: "오르테가", img: "../img/mancity/오르테가.jpg" },
+                { name: "스콧 카슨", img: "../img/mancity/스콧카슨.jpg" },
+            ],
+        };
+
+        let uniforms = {
+            home : [{name : "홈 유니폼", img:"../img/mancity/홈.jpg"}],
+            away : [{name : "어웨이 유니폼", img:"../img/mancity/어웨이.jpg"}],
+            third : [{name : "써드 유니폼", img:"../img/mancity/써드.jpg"}]
+        }
+
+        function show(id) {
+            let sections = document.querySelectorAll(".con");
+            sections.forEach((section) => {
+                section.classList.remove("on");
+                section.style.display = "none";
+            });
+
+            let targetSection = document.getElementById(id);
+            if (targetSection) {
+                targetSection.classList.add("on");
+                targetSection.style.display = "block"; 
+            }
+        }
+
+        function showPlayers(position) {
+            let playerList = document.querySelector("#playerList");
+            playerList.innerHTML = "";
+
+            if (players[position]) {
+                players[position].forEach((player) => {
+                    let playerDiv = document.createElement("div");
+
+                    let playerImg = document.createElement("img");
+                    playerImg.src = player.img;
+                    playerImg.alt = player.name;
+                    playerImg.style.width = "150px"; 
+                    playerImg.style.height = "300px"; 
+
+                    let playerName = document.createElement("p");
+                    playerName.textContent = player.name;
+
+                    playerDiv.appendChild(playerImg);
+                    playerDiv.appendChild(playerName);
+
+                    playerList.appendChild(playerDiv);
+                });
+            }
+        }
+
+        function showUniform(type) {
+            let uniformList = document.querySelector("#uniformList");
+            uniformList.innerHTML = "";
+
+            if (uniforms[type]) {
+                uniforms[type].forEach((uniform) => {
+                    let uniformDiv = document.createElement("div");
+
+                    let uniimg = document.createElement("img");
+                    uniimg.src = uniform.img;
+                    uniimg.alt = uniform.name;
+                    uniimg.style.width = "200px";
+                    uniimg.style.height = "300px";
+
+                    let uniname = document.createElement("p");
+                    uniname.textContent = uniform.name;
+
+                    uniformDiv.appendChild(uniimg);
+                    uniformDiv.appendChild(uniname);
+
+                    uniformList.appendChild(uniformDiv);
+                });
+            } 
+        } 
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{ margin: 0; padding: 0; overflow: hidden; width: 100vw; height: 100vh; box-sizing: border-box;}
+        #outBox{
+            width: 100%;
+            color: white;
+        }
+        #toolBar{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 70px;
+            background-color: black;
+        }
+        canvas{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="outBox">
+        <div id="toolBar">
+            <div>
+                <label for="co">색상</label>
+                <input id="co" type="color" value="#000000">
+                <select id="aaa">
+                    <option value="won">원</option>
+                    <option value="sa">사각형</option>
+                </select>
+                <label for="lwidth"> 선 굵기 </label>
+                <input id="lwidth" type="number" min="1" max="50" value="2">
+            </div>
+            <button id="reset">지우기</button>
+        </div> <!--  toolbar end -->
+        <canvas ></canvas>
+    </div>  <!--  outBox end -->
+    <script>
+        const canvas = document.querySelector("canvas");
+        const toolBar = document.querySelector("#toolBar");
+        const aaa = document.querySelector('#aaa');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight - toolBar.offsetHeight;
+
+        let canvasX = canvas.offsetLeft;
+        let canvasY = canvas.offsetTop;
+
+        const ctx = canvas.getContext("2d");
+        
+        let flag = false;
+        let startX = 0;
+        let startY = 0;
+        
+        toolBar.addEventListener("change", e => {
+            if(e.target.id == "co" ) {
+                ctx.strokeStyle = e.target.value;
+            }
+            if(e.target.id == "lwidth") {
+                ctx.lineWidth = e.target.value;
+            }
+            if(e.target.id =="aaa" ){
+                ctx.strokeStyle = e.target.value;
+            }
+        });
+
+        canvas.addEventListener("mousedown", e=>{
+            flag = true;
+            startX = e.clientX;
+            startY = e.clientY-toolBar.offsetHeight; // canvasOffsetY
+        });
+        canvas.addEventListener("mousemove", e => {
+            if( !flag ) return;
+            ctx.lineCap = "round";
+            ctx.lineTo(e.clientX, e.clientY-toolBar.offsetHeight);
+            ctx.stroke();
+        });
+        canvas.addEventListener("mouseup", e =>{
+            flag = false;
+            ctx.beginPath();
+        });
+
+        toolBar.addEventListener("click", e =>{
+            if(e.target.id == "reset"){
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        });
+    </script>
+</body>
+</html>
