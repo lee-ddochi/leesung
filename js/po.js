@@ -121,11 +121,21 @@ slid();
 
 const navLinks = document.querySelectorAll('nav ul li a');
 
+
 navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    // 모든 링크에서 'active' 클래스 제거
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+
     navLinks.forEach(item => item.classList.remove('active'));
-    // 현재 클릭된 링크에 'active' 클래스 추가
+
     link.classList.add('active');
+
+    const targetId = link.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetId);
+
+    targetSection.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
   });
 });
