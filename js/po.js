@@ -118,3 +118,4 @@ function rightmove(){
 leftB.addEventListener("click", leftmove);
 rightB.addEventListener("click", rightmove);
 slid();
+
