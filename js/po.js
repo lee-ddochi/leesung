@@ -115,10 +115,6 @@ function rightmove(){
     slid();
 }
 
-leftB.addEventListener("click", leftmove);
-rightB.addEventListener("click", rightmove);
-slid();
-
 // 1) Scroll Navigation
 var aTags = document.querySelectorAll("ul li a");
 
@@ -134,21 +130,20 @@ for (var i = 0; i < aTags.length; i++) {
   };
 }
 // 탑 버튼 제어
-const topBtn = document.getElementById("topbtn");
+const topBtn = document.getElementById("topBtn");
 
-// 스크롤 이벤트 감지
-window.onscroll = function() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        topBtn.style.display = "block"; // 스크롤 300px 이상이면 버튼 보이기
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 3000) { 
+        topBtn.style.display = "block"; // 300px 이상 스크롤하면 버튼 표시
     } else {
-        topBtn.style.display = "none"; // 스크롤 300px 이하이면 버튼 숨기기
+        topBtn.style.display = "block"; // 300px 이하에서는 버튼 숨기기
     }
-};
+});
 
-// 버튼 클릭 시 최상단으로 스크롤 이동
-topBtn.addEventListener("click", function() {
+topBtn.addEventListener("click", () => {
     window.scrollTo({
-        top: 0, // 최상단 좌표로 이동
-        behavior: "smooth" // 부드러운 스크롤 애니메이션
+        top: 0, // 최상단 이동
+        behavior: "smooth" // 부드러운 애니메이션
     });
 });
+

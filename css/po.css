@@ -590,4 +590,30 @@ img{ margin: 0; padding: 0;}
                 padding: 4.4rem;
                 margin: auto;
                 }
-
+                #topBtn {
+                    display: block; /* 기본적으로 보이지 않도록 설정 */
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    z-index: 1000;
+                    background-color: #333;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 10px 15px;
+                    cursor: pointer;
+                    font-size: 16px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                    transition: all 0.3s ease-in-out;
+                    font-size: 1.2rem;
+                font-family: "Noto Sans KR", sans-serif;
+                font-optical-sizing: auto;
+                font-weight:bold;
+                font-style: normal;
+                }
+                
+                #topBtn:hover {
+                    background-color: white;
+                    color: black;
+                    transform: scale(1.1);
+                }
